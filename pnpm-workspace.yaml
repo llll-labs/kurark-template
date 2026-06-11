@@ -1,0 +1,10 @@
+shellEmulator: true
+trustPolicy: no-downgrade
+packages:
+  - .
+overrides:
+  '@electric-sql/pglite': 0.4.5
+  '@iconify-json/lucide': 1.2.108
+  eslint: 10.4.0
+  trpc-nuxt: 2.0.2
+  tsx: 4.22.3

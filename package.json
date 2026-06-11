@@ -1,0 +1,49 @@
+{
+  "name": "@kurark/template",
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@10.30.3",
+  "scripts": {
+    "dev": "pnpm db:migrate && pnpm dev:app",
+    "dev:app": "NUXT_IGNORE_LOCK=1 PORT=${PORT:-5400} HOST=${HOST:-127.0.0.1} nuxt dev --host ${HOST:-127.0.0.1} --port ${PORT:-5400}",
+    "build": "nuxt build",
+    "preview": "nuxt preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "nuxi typecheck",
+    "db:migrate": "pnpm db:migrate:core",
+    "db:migrate:core": "pnpm --dir node_modules/@kurark/layer exec drizzle-kit migrate",
+    "ark:kill": "ark-kill",
+    "ark:kill:dry": "ark-kill --dry-run",
+    "docker:up": "ark-port-cell docker compose -f node_modules/@kurark/layer/docker-compose.yml up -d",
+    "docker:down": "ark-port-cell docker compose -f node_modules/@kurark/layer/docker-compose.yml down"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "0.4.5",
+    "@kurark/layer": "github:llll-labs/kurark#v0.1.0-alpha.1",
+    "@nuxt/ui": "4.7.1",
+    "@pinia/nuxt": "0.11.3",
+    "@tanstack/vue-query": "5.100.11",
+    "@tanstack/vue-table": "8.21.3",
+    "@tiptap/extension-placeholder": "3.26.0",
+    "@tiptap/html": "3.26.0",
+    "@tiptap/starter-kit": "3.26.0",
+    "@tiptap/vue-3": "3.26.0",
+    "cheerio": "1.2.0",
+    "drizzle-kit": "0.31.10",
+    "drizzle-orm": "0.45.2",
+    "json-editor-vue": "0.18.1",
+    "nuxt": "4.4.6",
+    "pinia": "3.0.4",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "9.0.0",
+    "@iconify-json/lucide": "1.2.108",
+    "@types/node": "24.12.4",
+    "eslint": "10.4.0",
+    "tsx": "4.22.3",
+    "typescript": "6.0.3",
+    "vue-tsc": "3.3.0"
+  }
+}
